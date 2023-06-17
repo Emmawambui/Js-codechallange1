@@ -5,15 +5,19 @@ const kmPerSpeedDemiritPoints = 5
 const maxSpeedLimitDemeritPoints = 12
 const demiritPoints = ((speed-speedLimit)/kmPerSpeedDemiritPoints)
 
-let speed = 80
-if (speed < speedLimit){
+function speedDetector(speed){
+
+if (speed <= speedLimit){
     console.log('OK');
-}else if( speed <= maxSpeedLimitDemeritPoints){
+
+}else if( demiritPoints <= maxSpeedLimitDemeritPoints){
     console.log('demeritsPoints');
-}else ( speed =>maxSpeedLimitDemeritPoints);{
+}else ( demiritPoints => maxSpeedLimitDemeritPoints);{
     console.log('License suspended');
 }
+}
+const speed = parseInt('90')
+function speedDetector(speed)
+console.log(speedDetector(speed));
 
-console.log(speed = 80)
-
-
+ 
