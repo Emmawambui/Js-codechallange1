@@ -1,29 +1,148 @@
 // Net Salary Calculator
 
-function calculateNetSalary(basicSalary, benefits) {
-    const taxRate =  0.25// 25% tax rate on average
-    const nhifRate = 0.45; // 4.5% NHIF deduction rate on average
-    const nssfRate = 0.06; // 6% NSSF deduction rate on average
-  
-    
-    const grossSalary = basicSalary + contibutionBenefits;
-  
-    
-    const payee= grossSalary * taxRate;
-  
+//NHIF deductions
+  function calculateNhifDeductions(grossSalary) {
 
-    const nhifDeductions = grossSalary * nhifRate;
-  
-    
-    const nssfDeductions = grossSalary * nssfRate;
-  
-    
-    const netSalary = grossSalary - payee - nhifDeductions - nssfDeductions;
-  
-   
-    console.log(netSalary + "Ksh");
+    let deduction = 0;
+
+ 
+
+    if (grossSalary >= 6000 && grossSalary <= 7999) {
+
+      deduction = 300;
+
+    } else if (grossSalary >= 8000 && grossSalary <= 11999) {
+
+      deduction = 400;
+
+    } else if (grossSalary >= 12000 && grossSalary <= 14999) {
+
+      deduction = 500;
+
+    } else if (grossSalary >= 15000 && grossSalary <= 19999) {
+
+      deduction = 600;
+
+    } else if (grossSalary>= 20000 && grossSalary <= 24999) {
+
+      deduction = 750;
+
+    } else if (grossSalary >= 25000 && grossSalary <= 29999) {
+
+      deduction = 850;
+
+    } else if (grossSalary >= 30000 && grossSalary <= 34999) {
+
+      deduction = 900;
+
+    } else if (grossSalary >= 35000 && grossSalary <= 39999) {
+
+      deduction = 950;
+
+    } else if (grossSalary >= 40000 && grossSalary <= 44999) {
+
+      deduction = 1000;
+
+    } else if (grossSalary >= 45000 && grossSalary <= 49999) {
+
+      deduction = 1100;
+
+    } else if (grossSalary >= 50000 && grossSalary <= 59999) {
+
+      deduction = 1200;
+
+    } else if (grossSalary >= 60000 && grossSalary <= 69999) {
+
+      deduction = 1300;
+
+    } else if (grossSalary >= 70000 && grossSalary <= 79999) {
+
+      deduction = 1400;
+
+    } else if (grossSalary >= 80000 && grossSalary<= 89999) {
+
+      deduction = 1500;
+
+    } else if (grossSalary >= 90000 && grossSalary <= 99999) {
+
+      deduction = 1600;
+
+    } else if (grossSalary >= 100000) {
+
+      deduction = 1700;
+
+    }
+
+ 
+
+    return deduction;
+
   }
-  
 
-  console.logcalculateNetSalary(grossSalary= 50000);
-  
+ 
+
+  //NSSF Deductions
+
+  function calculateNssfDeductions(pay) {
+
+    return pay * 0.06
+
+  }
+
+ 
+
+ //PAYEE Deductions
+
+ function calculatePayee(monthlyTaxablePay) {
+
+    let payee = 0;
+
+ 
+
+    if (monthlyTaxablePay <= 24000) {
+
+      taxRate = 10;
+
+    } else if (monthlyTaxablePay >= 24001 && monthlyTaxablePay <= 32333) {
+
+      taxRate = 25;
+
+    } else if (monthlyTaxablePay> 32333) {
+
+      taxRate = 30;
+
+    }
+
+ 
+
+    return rate;
+
+  }
+
+
+  // Net Salary
+    function calculateNetSalary(grossSalary, benefits) {
+      var monthlyTaxablePay = grossSalary
+      var taxRate = payeeDeductions
+      
+      var payee= calculatePayee(grossSalary * taxRate)//Rate is in %
+
+      var nhifDeductions = calculateNhifDeductions(nhifDeductions)
+      
+      var nssfDeductions = calculateNssfDeductions(nssfDeductions)
+      
+      var netSalary = grossSalary - payee - nhifDeductions - nssfDeductions;
+      console.log(netSalary + "Ksh");
+      return netSalary
+    }
+
+ var salary = parseInt("7000")//input gross salsary
+
+ var benefits = parseInt("800")// input benefits
+
+ calculateNetSalary(salary, benefits)
+
+ 
+
+
+console.logcalculateNetSalary(grossSalary= 50000);
