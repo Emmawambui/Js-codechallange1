@@ -101,15 +101,15 @@
 
     if (monthlyTaxablePay <= 24000) {
 
-      taxRate = 10;
+      taxRate = 0.1;
 
     } else if (monthlyTaxablePay >= 24001 && monthlyTaxablePay <= 32333) {
 
-      taxRate = 25;
+      taxRate = 0.25;
 
     } else if (monthlyTaxablePay> 32333) {
 
-      taxRate = 30;
+      taxRate = 0.3;
 
     }
 
@@ -121,28 +121,23 @@
 
 
   // Net Salary
-    function calculateNetSalary(grossSalary, benefits) {
-      var monthlyTaxablePay = grossSalary
-      var taxRate = payeeDeductions
+    function calculateNetSalary(grossSalary) {
+      let monthlyTaxablePay = grossSalary
+      // let taxRate = payeeDeductions
       
-      var payee= calculatePayee(grossSalary * taxRate)//Rate is in %
+      let payee= calculatePayee(grossSalary * taxRate)//Rate is in %
 
-      var nhifDeductions = calculateNhifDeductions(nhifDeductions)
+      let nhifDeductions = calculateNhifDeductions(nhifDeductions)
       
-      var nssfDeductions = calculateNssfDeductions(nssfDeductions)
+      let nssfDeductions = calculateNssfDeductions(nssfDeductions)
       
-      var netSalary = grossSalary - payee - nhifDeductions - nssfDeductions;
+      let netSalary = grossSalary - payee - nhifDeductions - nssfDeductions;
       console.log(netSalary + "Ksh");
       return netSalary
     }
 
- var salary = parseInt("7000")//input gross salsary
+ let salary = parseInt("7000")//input gross salsary
 
- var benefits = parseInt("800")// input benefits
+ calculateNetSalary(salary)
 
- calculateNetSalary(salary, benefits)
-
- 
-
-
-console.logcalculateNetSalary(grossSalary= 50000);
+ console.logcalculateNetSalary(grossSalary= 50000);
