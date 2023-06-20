@@ -22,5 +22,5 @@ function speedDetector(speed) {
 }
 // const speed = parseInt('90')
 // speedDetector(75)
-console.log(speedDetector(80));
+console.log(speedDetector(180));
 
