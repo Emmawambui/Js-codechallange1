@@ -1,4 +1,12 @@
 // Net Salary Calculator
+  
+  // let basicSalary = 40000;
+  // let benefits = 1500;
+const calculateGrossSalary = (basicSalary, benefits) => {
+  // Calculate gross salary by adding basic salary and benefits allowances
+ const grossSalary = basicSalary + benefits;
+  return grossSalary;
+};
 
 //NHIF deductions
   function calculateNhifDeductions(grossSalary) {
@@ -89,18 +97,18 @@
  //PAYEE Deductions
 
  function calculatePayee(monthlyTaxablePay) {
-
+// monthlyTaxablePay = grossSalary - NSSFDeductions
     if (monthlyTaxablePay <= 24000) {
 
-    return grossSalary * 0.1;
+    return monthlyTaxablePay * 0.1;
 
     } else if (monthlyTaxablePay >= 24001 && monthlyTaxablePay <= 32333) {
 
-      return grossSalary * 0.25;
+      return monthlyTaxablePay * 0.25;
 
     } else if (monthlyTaxablePay> 32333) {
 
-      return grossSalary * 0.3;
+      return monthlyTaxablePay * 0.3;
 
     }
 
@@ -108,9 +116,11 @@
 
 
   // Net Salary
-    function calculateNetSalary(grossSalary) {
+    function calculateNetSalary(basicSalary,benefits=0) {
+      const grossSalary = calculateGrossSalary(basicSalary,benefits); 
+      const monthlyTaxablePay = grossSalary - calculateNssfDeductions(grossSalary)
       
-      let netSalary = grossSalary - (calculateNssfDeductions(grossSalary) + calculateNhifDeductions(grossSalary) +  calculateNssfDeductions(grossSalary));
+      let netSalary = grossSalary - (calculatePayee(monthlyTaxablePay) + calculateNhifDeductions(grossSalary) +  calculateNssfDeductions(grossSalary));
       return (netSalary + "Ksh");
     
     }
